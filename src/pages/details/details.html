@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card *ngIf="item">
+  <ion-card-header>
+    {{ item.title }}
+  </ion-card-header>
+  <ion-card-content>
+    {{ item.info }}
+  </ion-card-content>
+</ion-card>
+</ion-content>
