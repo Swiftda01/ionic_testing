@@ -4,6 +4,7 @@ import { HomePage } from './home';
 import { MyApp } from './../../app/app.component';
 import {} from 'jasmine';
 import { async, TestBed } from '@angular/core/testing'
+import { By } from '@angular/platform-browser';
 
 describe('HomePage', () => {
   let fixture;
@@ -44,5 +45,20 @@ describe('HomePage', () => {
   it('should remove items', () => {
     component.removeTodo(0);
     expect(component.items.length).toBe(2);
+  });
+
+  it('should have the right title', () => {
+    let de = fixture.debugElement.query(By.css('ion-title'));
+    let el = de.nativeElement;
+    expect(el.textContent).toContain('Todos')
+  });
+
+  it('should display todos with titles', () => {
+    let item = component.items[0];
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('ion-list ion-item-sliding'));
+    let el = de.nativeElement;
+    expect(el.textContent).toContain(item.title);
   });
 });
