@@ -52,5 +52,24 @@ describe('App E2E Test', () => {
     });
   });
 
+  describe('HomePage navigation', () => {
+    beforeEach(() => {
+      page.navigateTo('/');
+    });
 
+    it('should not have a back button on list page', () => {
+      page.getBackButton().isDisplayed().then(state => {
+        expect(state).toBeFalsy();
+      });
+    });
+
+    it('should  have a back button on details page', () => {
+      page.clickItem(2).then(() => {
+        element(by.css('page-details ion-navbar .back-button'))
+        .isDisplayed().then(state => {
+          expect(state).toBeTruthy();
+        });
+      });
+    });
+  });
 });
