@@ -13,5 +13,29 @@ export class Page {
   getNavBar() {
     return element(by.css('ion-navbar')).isPresent();
   }
+
+  getBackButton() {
+    return element(by.css('ion-navbar .back-button'));
+  }
+
+  getListItems() {
+    return element.all(by.css('ion-list ion-item'));
+  }
+
+  submitForm() {
+    return element(by.id('submitBtn')).click();
+  }
+
+  clickItem(position) {
+    return this.getListItems().get(position).click();
+  }
+
+  getNameInput() {
+    return element(by.id('titleInput')).element(by.css('input'));
+  }
+
+  getInfoInput() {
+    return element(by.id('infoInput')).element(by.css('input'));
+  }
   
 }
