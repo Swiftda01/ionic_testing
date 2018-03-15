@@ -15,13 +15,13 @@ describe('App E2E Test', () => {
       });
 
       it('should have a title', () => {
-        element(by.css('ion-title')).getText().then(title => {
+        Page.getTitle().then(title => {
           expect(title).toBe('Todos');
         });
       });
 
       it('should have a navbar', () => {
-        element(by.css('ion-navbar')).isPresent().then(present => {
+        Page.getNavBar().then(present => {
           expect(present).toBe(true);
         });
       });

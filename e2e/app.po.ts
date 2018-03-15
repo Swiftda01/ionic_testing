@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class Page {
 
@@ -7,7 +7,11 @@ export class Page {
   }
 
   getTitle() {
-    return browser.getTitle();
+    return element(by.css('ion-title')).getText();
+  }
+
+  getNavBar() {
+    return element(by.css('ion-navbar')).isPresent();
   }
   
 }
